@@ -1,0 +1,53 @@
+import requests
+from bs4 import BeautifulSoup
+import pymysql  # MySQL 연결용 라이브러리
+
+# DB 연결 설정 (팀원에게 정보 받아야 함!)
+connection = pymysql.connect(
+    host='localhost',        # DB 서버 주소
+    user='your_username',    # DB 사용자명
+    password='your_password',# DB 비밀번호
+    database='your_database',# DB 이름
+    charset='utf8mb4'
+
+    
+#==========================
+
+#url 리스트
+# 1) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=275&keyfield=title&listsz=10&cate1=07&bcd=faq
+# 2) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=120&keyfield=title&listsz=10&cate1=07&bcd=faq
+# 3) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=119&keyfield=title&listsz=10&cate1=07&bcd=faq
+# 4) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=118&keyfield=title&listsz=10&cate1=07&bcd=faq
+# 5) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=117&keyfield=title&listsz=10&cate1=07&bcd=faq
+# 6) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=116&keyfield=title&listsz=10&cate1=07&bcd=faq
+# 7) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=115&keyfield=title&listsz=10&cate1=07&bcd=faq
+# 8) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=114&keyfield=title&listsz=10&cate1=07&bcd=faq
+# 9) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=113&keyfield=title&listsz=10&cate1=07&bcd=faq
+#10) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=112&keyfield=title&listsz=10&cate1=07&bcd=faq
+# 11) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=109&keyfield=title&listsz=10&cate1=07&bcd=faq&pgno=2
+# 12) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=108&keyfield=title&listsz=10&cate1=07&bcd=faq&pgno=2
+# 13) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=531&keyfield=title&listsz=10&cate1=04&bcd=faq
+# 14) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=530&keyfield=title&listsz=10&cate1=04&bcd=faq
+# 15) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=529&keyfield=title&listsz=10&cate1=04&bcd=faq
+# 16) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=528&keyfield=title&listsz=10&cate1=04&bcd=faq
+# 17) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=236&keyfield=title&listsz=10&cate1=04&bcd=faq
+# 18) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=235&keyfield=title&listsz=10&cate1=04&bcd=faq
+# 19) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=233&keyfield=title&listsz=10&cate1=04&bcd=faq
+# 20) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=231&keyfield=title&listsz=10&cate1=04&bcd=faq
+# 21) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=230&keyfield=title&listsz=10&cate1=04&bcd=faq
+# 22) https://www.sisul.or.kr/open_content/traffic/bbs/bbsMsgDetail.do?msg_seq=227&keyfield=title&listsz=10&cate1=04&bcd=faq
+
+#=========================
+
+## 작업 흐름 이해하기
+
+# 1) vs code에서 파일 수정
+# 2) ex. read.md 수정 -> 코드 수정 -> 이미지 추가 등하면 반드시 Ctrl+s로 저장
+# 3) git bash 열기 
+# 4) git status 명령어 -> modified: data/read.md (=vs code에서 저장한게 감지됨)
+#5) 변경 사항 커밋&푸시:
+#   -> git add
+#   -> git commit -m "update readme"
+#⭐⭐같은 폴더인지 확인하기
+# /c/SKN_24/term_p (kimjiwon)
+# git status
