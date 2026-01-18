@@ -55,7 +55,7 @@ MySQL 기반 DB(`traffic`)를 구축한 프로젝트이다.
 
 ## 4. WBS
 
-![WBS](../wbs.png)
+![WBS](wbs.png)
 
 프로젝트 전체 일정 및 작업 단계를 WBS 기반으로 관리하였다.
 
@@ -77,7 +77,7 @@ MySQL 기반 DB(`traffic`)를 구축한 프로젝트이다.
 ## 6. ERD
 ### 6-1. DA 모델(ERD)
 
-![WBS](../erd.png)
+![WBS](erd.png)
 
 본 프로젝트의 ERD는 도로(링크) 엔터티를 중심으로
 제한속도 / 혼잡도 데이터가 연결되며,
