@@ -107,7 +107,7 @@ Young People
 
 # 4. WBS
 
-![image](./wbs.png.png)
+![image](./src/wbs.png.png)
 
 ---
 
