@@ -22,10 +22,8 @@ Young People
 
 | 이름 | 역할 | GitHub |
 |----|----|----|
-| 김규호 | DB생성 및 적재
-파이프라인 구축 | [https://github.com/kyu5KIm](https://github.com/kyu5KIm) |
-| 김지원 | FAQ 데이터 크롤링 및
-테이블 설계 | [https://github.com/edu-ai-jiwon](https://github.com/edu-ai-jiwon) |
+| 김규호 | DB생성 및 적재 파이프라인 구축 | [https://github.com/kyu5KIm](https://github.com/kyu5KIm) |
+| 김지원 | FAQ 데이터 크롤링 및 테이블 설계 | [https://github.com/edu-ai-jiwon](https://github.com/edu-ai-jiwon) |
 | 류지우 | streamlit 개발 및 DB연동  | [https://github.com/jia11234](https://github.com/jia11234) |
 | 박수영 | DB생성 및 FAQ 크롤링 | [https://github.com/suyoung6279](https://github.com/suyoung6279) |
 
@@ -41,6 +39,7 @@ Young People
 ![01_read.me](01_read.me.png)
 ![02_read.me](02_read.me.png)
 ![03_read.me](03_read.me.png)
+
 서울시 「2025년도 도로통계」에 따르면 서울의 도로 총연장은 최근 몇 년간 전반적으로 증가해 2024년 기준 8,343km 수준으로 집계됩니다. 도로가 늘어 실제로 혼잡이 줄어들었는지 확인해보기 위해 저희는 서울 내 승용차 통행속도를 보았습니다.
 
 저희의 예상과 다르게 서울 내 승용차 통행속도는 최근 몇 년간 하락 추세를 보이며, “도로는 늘어나는데도 소통은 개선되지 않는” 현상이 관측됩니다. 또한 서울 열린데이터광장 자료를 기준으로 등록 차량 대수는 최근 몇 년간 큰 폭의 급증이라기보다는 완만한 변동 수준으로 나타나, 혼잡을 단순히 “차가 갑자기 늘어서”라고만 보기에도 한계가 있습니다.
