@@ -1,0 +1,102 @@
+import streamlit as st
+
+st.set_page_config(layout="wide")
+
+# ---- CSS 정의 ----
+st.markdown("""
+<style>
+@font-face {
+    font-family: 'ChangwonDangamRounded';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2511-1@1.0/ChangwonDangamRound-Regular.woff2') format('woff2');
+    font-weight: normal;
+}
+
+header[data-testid="stHeader"] { display: none; }
+
+.stApp {
+    background-color: #ffffff;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 왼쪽 타이틀 */
+.main_title {
+    margin-top: 75px;
+    font-family: 'ChangwonDangamRounded', sans-serif;
+    color: #0054A2;
+    font-size: 100px;
+    text-align: left;
+}
+.main_title p:nth-child(3) {
+    font-size: 32px;
+    color: #FF7F00;
+    margin-top: -20px;
+}
+
+/* 지도 래퍼 */
+.map-wrapper {
+    position: relative;
+    width: 1328px;
+}
+
+/* 버튼 공통 스타일 */
+.map_button {
+    position: absolute;
+    z-index: 10;
+    font-family: 'ChangwonDangamRounded', sans-serif !important;
+    font-size: 32px !important;
+    background-color: #0054A2;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    width: 170px;
+    height: 65px;
+    cursor: pointer;
+}
+.map_button:hover {
+    background-color: #EFEFEF;
+    color: #0054A2;
+}
+
+/* 버튼 좌표 예시 */
+.btn-jongno { top: 50px; left: 50px; }
+.btn-gangnam { top: 520px; left: 780px; }
+.btn-songpa  { top: 560px; left: 860px; }
+.btn-gangdong{ top: 500px; left: 900px; }
+/* 필요하면 여기 CSS에 나머지 구 위치 추가 */
+</style>
+""", unsafe_allow_html=True)
+
+
+# ---- 레이아웃 ----
+left, right = st.columns([3, 7])
+
+with left:
+    st.markdown("""
+    <div class="main_title">
+        <p>서울특별시</p>
+        <p>교통 혼잡도</p>
+        <p>구를 클릭해 교통혼잡도를 확인해보세요!</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with right:
+    st.markdown('<div class="map-wrapper">', unsafe_allow_html=True)
+    st.image("../src/map.png", width=1328)
+
+    gu_arr = {
+        "종로구": "jongno",
+        "강남구": "gangnam",
+        "송파구": "songpa",
+        "강동구": "gangdong",
+        # 필요하면 나머지 구도 추가
+    }
+
+    for gu_kr, gu_en in gu_arr.items():
+        st.markdown(
+            f'<button class="map_button btn-{gu_en}">{gu_kr}</button>',
+            unsafe_allow_html=True
+        )
+
+    st.markdown('</div>', unsafe_allow_html=True)
