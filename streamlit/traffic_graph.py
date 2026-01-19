@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from data import get_gu_congestion, get_gu_density, get_road_congestion, road, get_gu_total_road_length, get_gu_resgisted_car
+from data import get_gu_congestion, get_road_congestion, road, get_gu_total_road_length, get_gu_resgisted_car
 import base64
 
 # 이미지 경로 base64로 변경 url로 넣으면 인식 x
@@ -151,13 +151,13 @@ a = gu_total_road.avg_distance.iloc[0]
 b = registed_car.registed_car_num.iloc[0]
 
 # 밀도 계산 (해당 구에 속하는 모든 도로의 길이/해당 구의 월별 등록대수)
-mil = int(b/a)
+mil = round(int(b/a), 2)
 
 # 구별 혼잡도 계산식
-gu_con_r = 100-gu_congestion_month.gu_congestion.iloc[0]
+gu_con_r = round(100 - gu_congestion_month.gu_congestion.iloc[0], 2)
 
 # 차량혼합밀집도
-car_mix = mil * (gu_con_r / 100)
+car_mix = round(mil * (gu_con_r / 100), 2)
 
 # 기본 상행 상행과 하행의 차이가 크지 않아 그래프 변화가 없는 것처럼 보일 수 있음
 with cold:
